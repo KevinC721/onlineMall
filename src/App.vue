@@ -9,13 +9,11 @@ export default {
   name: 'App',
   data() {
     return {
-      res: {}
+      
     }
   },
   mounted() {
-    this.axios.get('/mock/user/login.json').then(res => {
-      this.res = res
-    });
+    
   }
 }
 </script>
