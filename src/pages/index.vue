@@ -2,6 +2,44 @@
   <div id="index">
     <div class="container">
       <div class="swiper-box">
+        <div class="nav-menu">
+          <ul class="menu-wrap">
+            <li class="menu-item">
+              <a href="javascript:;">手机 电话卡</a>
+              <div class="children">
+                <ul v-for="(item,index) of menuList" :key="index">
+                  <li v-for="(sub,i) of item" :key="i">
+                    <a :href="sub ? '/#/product/' + sub.id : ''">
+                      <img :src="sub ? sub.img : '/imgs/item-box-1.png'" alt />
+                      {{sub ? sub.name : '小米9'}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">电视 盒子</a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">笔记本 平板</a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">家电 插线板</a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">出行 穿戴</a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">智能 路由器</a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">电源 配件</a>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">生活 箱包</a>
+            </li>
+          </ul>
+        </div>
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item,index) of slideList" :key="index">
             <a :href="'/#/product/' + item.id">
@@ -76,6 +114,140 @@ export default {
           id: "",
           img: "/imgs/slider/slide-5.jpg"
         }
+      ],
+      menuList: [
+        [
+          {
+            id: 30,
+            name: "小米CC9",
+            img: "/imgs/item-box-1.png"
+          },
+          {
+            id: 31,
+            name: "小米青春版",
+            img: "/imgs/item-box-2.png"
+          },
+          {
+            id: 32,
+            name: "Redmi K20 Pro",
+            img: "/imgs/item-box-3.jpg"
+          },
+          {
+            id: 33,
+            name: "移动4G专区",
+            img: "/imgs/item-box-4.jpg"
+          }
+        ],
+        [
+          {
+            id: 30,
+            name: "小米CC9",
+            img: "/imgs/item-box-1.png"
+          },
+          {
+            id: 31,
+            name: "小米青春版",
+            img: "/imgs/item-box-2.png"
+          },
+          {
+            id: 32,
+            name: "Redmi K20 Pro",
+            img: "/imgs/item-box-3.jpg"
+          },
+          {
+            id: 33,
+            name: "移动4G专区",
+            img: "/imgs/item-box-4.jpg"
+          }
+        ],
+        [
+          {
+            id: 30,
+            name: "小米CC9",
+            img: "/imgs/item-box-1.png"
+          },
+          {
+            id: 31,
+            name: "小米青春版",
+            img: "/imgs/item-box-2.png"
+          },
+          {
+            id: 32,
+            name: "Redmi K20 Pro",
+            img: "/imgs/item-box-3.jpg"
+          },
+          {
+            id: 33,
+            name: "移动4G专区",
+            img: "/imgs/item-box-4.jpg"
+          }
+        ],
+        [
+          {
+            id: 30,
+            name: "小米CC9",
+            img: "/imgs/item-box-1.png"
+          },
+          {
+            id: 31,
+            name: "小米青春版",
+            img: "/imgs/item-box-2.png"
+          },
+          {
+            id: 32,
+            name: "Redmi K20 Pro",
+            img: "/imgs/item-box-3.jpg"
+          },
+          {
+            id: 33,
+            name: "移动4G专区",
+            img: "/imgs/item-box-4.jpg"
+          }
+        ],
+        [
+          {
+            id: 30,
+            name: "小米CC9",
+            img: "/imgs/item-box-1.png"
+          },
+          {
+            id: 31,
+            name: "小米青春版",
+            img: "/imgs/item-box-2.png"
+          },
+          {
+            id: 32,
+            name: "Redmi K20 Pro",
+            img: "/imgs/item-box-3.jpg"
+          },
+          {
+            id: 33,
+            name: "移动4G专区",
+            img: "/imgs/item-box-4.jpg"
+          }
+        ],
+        [
+          {
+            id: 30,
+            name: "小米CC9",
+            img: "/imgs/item-box-1.png"
+          },
+          {
+            id: 31,
+            name: "小米青春版",
+            img: "/imgs/item-box-2.png"
+          },
+          {
+            id: 32,
+            name: "Redmi K20 Pro",
+            img: "/imgs/item-box-3.jpg"
+          },
+          {
+            id: 33,
+            name: "移动4G专区",
+            img: "/imgs/item-box-4.jpg"
+          }
+        ]
       ]
     };
   },
@@ -87,12 +259,85 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../assets/scss/base.scss";
+@import "../assets/scss/config.scss";
+@import "../assets/scss/mixin.scss";
 #index {
   .swiper-box {
+    .nav-menu {
+      position: absolute;
+      width: 264px;
+      height: 451px;
+      z-index: 9;
+      padding: 26px 0;
+      background-color: #55585a7a;
+      box-sizing: border-box;
+      .menu-wrap {
+        .menu-item {
+          height: 50px;
+          line-height: 50px;
+          a {
+            position: relative;
+            display: block;
+            font-size: 16px;
+            color: #fff;
+            padding-left: 30px;
+            &::after {
+              content: "";
+              position: absolute;
+              right: 30px;
+              top: 17.5px;
+              @include bgImg(10px, 10px, "/imgs/icon-arrow.png");
+            }
+          }
+          &:hover {
+            background-color: $colorA;
+            .children {
+              display: block;
+            }
+          }
+          .children {
+            display: none;
+            width: 962px;
+            height: 451px;
+            position: absolute;
+            top: 0;
+            left: 264px;
+            border: 1px solid $colorH;
+            background-color: $colorG;
+            ul {
+              display: flex;
+              justify-content: space-between;
+              height: 75px;
+              li {
+                flex: 1;
+                height: 75px;
+                padding-left: 23px;
+                line-height: 75px;
+              }
+              a {
+                color: $colorB;
+                font-size: 14px;
+              }
+              img {
+                width: 42px;
+                height: 35px;
+                vertical-align: middle;
+                margin-left: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
     .swiper-container {
       height: 451px;
+      .swiper-button-prev {
+        left: 270px;
+      }
       img {
         width: 100%;
+        height: 100%;
       }
     }
   }
