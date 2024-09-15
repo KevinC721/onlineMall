@@ -7,6 +7,6 @@
 <script>
 
 export default {
-  name: 'alipay1'
+  name: 'alipay'
 }
 </script>
